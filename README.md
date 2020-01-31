@@ -1,2 +1,3 @@
-# Forum
-Uma PoC simples, feita em Spring Boot.
+# Forum 
+Uma Api simples, feita em Spring Boot.
+
