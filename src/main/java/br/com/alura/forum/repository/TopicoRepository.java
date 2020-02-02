@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import br.com.alura.forum.model.Topico;
 
@@ -18,4 +20,7 @@ public interface TopicoRepository extends JpaRepository<Topico, Long> {
 	List<Topico> findByCursoNome(String nomeCurso);
 
 	Optional<Topico> findByTitulo(String titulo);
+	
+	@Query("SELECT t FROM Topico t WHERE t.curso.nome = :cursoNome")
+	List<Topico> carregarPorNomeDoCurso(@Param("cursoNome") String cursoNome);
 }
